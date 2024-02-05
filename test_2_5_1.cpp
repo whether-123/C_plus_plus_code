@@ -22,7 +22,7 @@ public:
 
     int pop() 
     {
-     Reverse();
+      Reverse();
       int temporary=q1.front();
       q1.pop();
       return temporary;
@@ -30,7 +30,7 @@ public:
     
     int top() 
     {
-    Reverse();
+      Reverse();
       return q1.front();
     }
     
