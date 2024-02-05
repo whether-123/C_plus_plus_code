@@ -1,6 +1,6 @@
 class MyStack {
 public:
-    MyStack() {  }
+    MyStack() { }
     queue<int> q1; //入元素
     queue<int> q2; //倒元素
 
