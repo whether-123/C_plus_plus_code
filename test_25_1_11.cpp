@@ -2,26 +2,16 @@ class Solution {
 public:
     void minadd(char i,char j,char& c,string& temp)
     {
-         if((i-'0')&&(j-'0'))  // 本位和为2时 (相加结果为低位的进位)
-            {
-               temp.insert(temp.begin(), c);
-               c='1'; 
-            }
-            else if((c-'0')+(i-'0')+(j-'0')==2) //进位+本位和 为2 时(满足第一种情况就会跳过)
-            {
-                temp.insert(temp.begin(), '0');
-                c='1';
-            }
-            else     
-            {
-                if(c=='0'&&i=='0'&&j=='0')     //进位+本为和 为0时
-                   temp.insert(temp.begin(), '0');
-                else
-                   temp.insert(temp.begin(), '1');  //  进位+本为和 为1 时
-
-                c='0';
-            }
-            
+        if((c-'0')+(i-'0')+(j-'0')>=2)  //进位+本位和 大于或等于2时
+        {
+            temp.insert(temp.begin(), (c-'0')+(i-'0')+(j-'0')-2+'0');
+            c='1';
+        }
+        else   //进位+本位和 小于2时
+        {
+            temp.insert(temp.begin(), (c-'0')+(i-'0')+(j-'0')+'0');
+            c='0';
+        }
     }
     
     string addBinary(string a, string b) {
